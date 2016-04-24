@@ -6,10 +6,18 @@
 
 	<?php
 
-	foreach ($all_books as $row)
+	if(isset($all_books))
 	{
-		echo "[" . $row->id_book . "] " . $row->book_name .' - '. $row->author . '';
-		echo " <a href=\"index.php?url=admin_remove_book/remove/".$row->id_book."\">Smazat</a><br />";
+		foreach ($all_books as $row)
+		{
+			echo "[" . $row->id_book . "] " . $row->book_name .' - '. $row->author . '';
+			echo " <a href=\"index.php?url=admin_remove_book/remove/".$row->id_book."\">Smazat</a> <a href=\"index.php?url=admin_home/edit_book/".$row->id_book."\">Upravit</a><br />";
+		}
+	}
+
+	if(isset($info))
+	{
+		echo $info;
 	}
 
 	?>

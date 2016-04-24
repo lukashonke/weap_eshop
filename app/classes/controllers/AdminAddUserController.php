@@ -29,7 +29,24 @@ class AdminAddUserController extends Controller
 		$email = $_POST['email'];
 		$pwdRaw = $_POST['pwd'];
 
-		$users->addUser($name, $lastName, $email, $pwdRaw);
+		$pass = md5($pwdRaw);
+
+		$users->addUser($name, $lastName, $email, $pass);
+		$this->redirect("admin_home/select/2");
+	}
+
+	public function edit($id)
+	{
+		$users = new Users($this->openDb());
+
+		$name = $_POST['name'];
+		$lastName = $_POST['last_name'];
+		$email = $_POST['email'];
+		$pwdRaw = $_POST['pwd'];
+		
+		$pass = md5($pwdRaw);
+
+		$users->editUser($id[0], $name, $lastName, $email, $pass);
 		$this->redirect("admin_home/select/2");
 	}
 }

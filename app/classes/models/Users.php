@@ -23,6 +23,12 @@ class Users
         DbTools::query($this->db, $sql);
     }
 
+    public function editUser($id_user, $name, $lastname, $email, $password)
+    {
+        $sql = "UPDATE users SET user_name='$name', lastname='$lastname', email='$email', password='$password' WHERE id='$id_user'";
+        DbTools::query($this->db, $sql);
+    }
+
     public function removeUser($id)
     {
         $sql = "DELETE FROM users WHERE id='$id'";
@@ -33,5 +39,11 @@ class Users
     {
         $sql = "SELECT * FROM users";
         return DbTools::queryReturnAll($this->db, $sql);
+    }
+
+    public function getUser($id)
+    {
+        $sql = "SELECT * FROM users WHERE id='$id'";
+        return DbTools::queryReturnFirstRow($this->db, $sql); // vratit jen jeden
     }
 }

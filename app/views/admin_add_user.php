@@ -2,11 +2,11 @@
 
 ?>
 <div class="admin_form">
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>?url=admin_add_user" method="post">
-		Jmeno uzivatele: <input type="text" name="name"><br>
-		Prijmeni uzivatele: <input type="text" name="last_name"><br>
-		Email uzivatele: <input type="text" name="email"><br>
-		Heslo uzivatele: <input type="text" name="pwd"><br>
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>?url=admin_add_user<?= $edit ?>" method="post">
+		Jmeno uzivatele: <input type="text" placeholder="<?= $default_name ?>"name="name"><br>
+		Prijmeni uzivatele: <input type="text" placeholder="<?= $default_lastname ?>"name="last_name"><br>
+		Email uzivatele: <input type="text" placeholder="<?= $default_email ?>"name="email"><br>
+		Heslo uzivatele: <input type="text" placeholder="<?= $default_password ?>"name="pwd"><br>
 			<input type="submit">
     </form>
 </div>

@@ -48,6 +48,12 @@ footer {
 	border-width: thin;
 	border-style: solid;
 	position: relative;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	background-color: #ababab;
 }
 .menu_button {
 	display: block;

@@ -23,6 +23,12 @@ class Books
         DbTools::query($this->db, $sql);
     }
 
+    public function editBook($id_book, $name, $author, $dodavatel, $price, $description, $category)
+    {
+        $sql = "UPDATE books SET book_name='$name', author='$author', description='$description', price='$price', category='$category' WHERE id_book='$id_book'";
+        DbTools::query($this->db, $sql);
+    }
+
     public function removeBook($id)
     {
         $sql = "DELETE FROM books WHERE id_book='$id'";
@@ -33,6 +39,12 @@ class Books
     {
         $sql = "SELECT * FROM books";
         return DbTools::queryReturnAll($this->db, $sql);
+    }
+
+    public function getBook($id)
+    {
+        $sql = "SELECT * FROM books WHERE id_book='$id'";
+        return DbTools::queryReturnFirstRow($this->db, $sql); // vratit jen jeden
     }
 
 }

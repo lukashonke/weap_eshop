@@ -33,4 +33,19 @@ class AdminAddBookController extends Controller
 		$books->addBook($jmeno, $autor, $vydavatel, $cena, $popis, $kategorie);
 		$this->redirect("admin_home/select/1");
 	}
+
+	public function edit($id)
+	{
+		$books = new Books($this->openDb());
+
+		$jmeno = $_POST['jmeno'];
+		$autor = $_POST['autor'];
+		$vydavatel = $_POST['vydavatel'];
+		$cena = $_POST['cena'];
+		$popis = $_POST['popis'];
+		$kategorie = $_POST['kategorie'];
+
+		$books->editBook($id[0], $jmeno, $autor, $vydavatel, $cena, $popis, $kategorie);
+		$this->redirect("admin_home/select/1");
+	}
 }

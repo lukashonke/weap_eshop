@@ -37,4 +37,9 @@ class AdminAddOrderController extends Controller
 		$orders->addOrder($idOrder, $idUser, $idBook, date("Y-m-d H:i:s"));
 		$this->redirect("admin_home/select/3");
 	}
+
+	public function edit($id)
+	{
+
+	}
 }

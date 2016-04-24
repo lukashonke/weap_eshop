@@ -64,6 +64,15 @@ class AdminHomeController extends Controller
                 $allBooksString = $books->getBooks(); //TODO pridat knihy
 
                 $addBookForm = new View('admin_add_book');
+                $addBookForm->set('edit', '');
+
+                $addBookForm->set('default_name', "");
+                $addBookForm->set('default_author', "");
+                $addBookForm->set('default_vydavatel', "");
+                $addBookForm->set('default_price', "");
+                $addBookForm->set('default_category', "");
+                $addBookForm->set('default_description', "");
+
                 $content->set('add_book_form', $addBookForm->render());
                 $content->set('all_books', $allBooksString);
 
@@ -81,6 +90,13 @@ class AdminHomeController extends Controller
                 $allUsersString = $users->getUsers(); //TODO pridat knihy
 
                 $addUserForm = new View('admin_add_user');
+                $addUserForm->set('edit', '');
+
+                $addUserForm->set('default_name', "");
+                $addUserForm->set('default_lastname', "");
+                $addUserForm->set('default_email', "");
+                $addUserForm->set('default_password', "");
+
                 $content->set('add_user_form', $addUserForm->render());
                 $content->set('all_users', $allUsersString);
 
@@ -98,6 +114,7 @@ class AdminHomeController extends Controller
                 $allOrdersString = $orders->getOrders(); //TODO pridat knihy
 
                 $addOrderForm = new View('admin_add_order');
+                $addOrderForm->set('edit', '');
                 $content->set('add_order_form', $addOrderForm->render());
                 $content->set('all_orders', $allOrdersString);
 
@@ -109,6 +126,77 @@ class AdminHomeController extends Controller
                 break;
         }
         //index();
+    }
+
+    public function editUser($id)
+    {
+        $this->template->set('title', 'editace uzivatele');
+        $content = new View('admin_users');
+
+        $addUserForm = new View('admin_add_user');
+        $addUserForm->set('edit', '/edit/' . $id[0]);
+
+        $users = new \app\classes\models\Users($this->openDb());
+        $userData = $users->getUser($id[0]);
+
+        $addUserForm->set('default_name', $userData->user_name);
+        $addUserForm->set('default_lastname', $userData->lastname);
+        $addUserForm->set('default_email', $userData->email);
+        $addUserForm->set('default_password', $userData->password);
+
+        $content->set('add_user_form', $addUserForm->render());
+        $content->set('info', 'Editace uzivatele ' . $id[0]);
+
+        $this->template->set('content', $content->render());
+
+        $this->addMenu();
+
+        echo $this->template->render();
+    }
+
+    public function editOrder($id)
+    {
+        $this->template->set('title', 'editace objednavky');
+        $content = new View('admin_orders');
+
+        $addOrderForm = new View('admin_add_order');
+        $addOrderForm->set('edit', '/edit/' . $id[0]);
+        $content->set('add_order_form', $addOrderForm->render());
+        $content->set('info', 'Editace objednavky ' . $id[0]);
+
+        $this->template->set('content', $content->render());
+
+        $this->addMenu();
+
+        echo $this->template->render();
+    }
+
+    public function editBook($id)
+    {
+        $this->template->set('title', 'editace knihy');
+        $content = new View('admin_books');
+
+        $addBookForm = new View('admin_add_book');
+        $addBookForm->set('edit', '/edit/' . $id[0]);
+
+        $books = new \app\classes\models\Books($this->openDb());
+        $bookData = $books->getBook($id[0]);
+
+        $addBookForm->set('default_name', $bookData->book_name);
+        $addBookForm->set('default_author', $bookData->author);
+        $addBookForm->set('default_vydavatel', "");
+        $addBookForm->set('default_price', $bookData->price);
+        $addBookForm->set('default_category', $bookData->category);
+        $addBookForm->set('default_description', $bookData->description);
+
+        $content->set('add_book_form', $addBookForm->render());
+        $content->set('info', 'Editace knihy ' . $id[0]);
+
+        $this->template->set('content', $content->render());
+
+        $this->addMenu();
+
+        echo $this->template->render();
     }
 
     private function addMenu()
