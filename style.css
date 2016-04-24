@@ -1,0 +1,99 @@
+@charset "utf-8";
+#wrapper {
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	border: thin solid #000000;
+	border-radius: 30px;
+	padding-top: 33px;
+	padding-right: 33px;
+	padding-bottom: 33px;
+	padding-left: 33px;
+	background-color: #F9F5D6;
+}
+.sideMenuButton {
+	display: block;
+}
+
+#wrapper header {
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	margin-bottom: 20px;
+	height: 173px;
+
+}
+.sideMenuButton:hover {
+	padding-left: 21px;
+}
+
+
+#wrapper main {
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+
+}
+.topMenuButton {
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+#wrapper #topNav {
+	text-align: center;
+	background-color: #D9D8D8;
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+}
+#obsah   {
+	width: 69%;
+	clear: right;
+	float: right;
+}
+
+#wrapper main #sideNav {
+	clear: left;
+	float: left;
+	position: relative;
+	width: 30%;
+}
+
+
+#wrapper footer {
+	clear: right;
+	background-color: #D9D8D8;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+#wrapper main #obsah {
+	margin-top: 0px;
+	margin-bottom: 22px;
+}
+#wrapper header h1 {
+	float: left;
+	clear: left;
+}
+
+h3 {
+	text-align: left;
+}
+
+#wrapper header img {
+	clear: right;
+	float: right;
+
+}
+main #obsah .shopItem {
+	width: 30%;
+	float: left;
+	margin-right: 2%;
+	margin-left: 1%;
+	margin-bottom: 12px;
+}
+#obsah .shopItem .itemName {
+	font-size: large;
+}
+#obsah .shopItem .itemPrice {
+	font-size: small;
+}
