@@ -43,7 +43,7 @@ class AdminAddUserController extends Controller
 		$lastName = $_POST['last_name'];
 		$email = $_POST['email'];
 		$pwdRaw = $_POST['pwd'];
-		
+
 		$pass = md5($pwdRaw);
 
 		$users->editUser($id[0], $name, $lastName, $email, $pass);

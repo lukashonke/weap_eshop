@@ -41,8 +41,8 @@ class Bootstrap
     {
         if($this->controller)
         {
-            $class_name = "\\app\\classes\\controllers\\" .$this->controller . "Controller";
-            $class_file = "app/classes/controllers/" .$this->controller."Controller.php";
+            $class_name = "\\app\\classes\\controllers\\" .$this->controller . "controller";
+            $class_file = "app/classes/controllers/" .$this->controller."controller.php";
 
             if(is_readable($class_file))
             {
