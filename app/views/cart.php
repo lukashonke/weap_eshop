@@ -12,6 +12,7 @@
 if(isset($all_books))
 {
     $pocet = 0;
+    $soucet = 0;
 
     echo "Vas kosik obsahuje:<br>";
 
@@ -26,6 +27,8 @@ if(isset($all_books))
         echo "<p class=\"itemPrice\">" . $row->price . " kc</p>";
         echo "<a href=\"index.php?url=viewbook/remove/" . $row->id_book . "\"><p class=\"itemName\">Remove</p></a>";
         echo "</article>";
+
+        $soucet = $soucet + $row->price;
     }
 
     echo "</div>";
@@ -36,7 +39,7 @@ if(isset($all_books))
     }
     else
     {
-        echo "<br><div class=\"newline\"><a class=\"btn btn-default\" href=\"index.php?url=cart/order\" role=\"button\">Send Order</a></div>";
+        echo "<br><div class=\"newline\"><p>Soucet: " . $soucet . "kc</p><a class=\"btn btn-default\" href=\"index.php?url=cart/order\" role=\"button\">Send Order</a></div>";
     }
 }
 

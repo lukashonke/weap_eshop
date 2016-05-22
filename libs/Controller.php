@@ -71,7 +71,7 @@ class Controller
     {
         if($this->isLogged())
         {
-            $this->template->set('logout', "Logout");
+            $this->template->set('logout', "logout");
         }
 
         if($this->isLogged())

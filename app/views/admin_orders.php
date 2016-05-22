@@ -14,10 +14,21 @@
 
 	if(isset($all_orders))
 	{
+		$currentId = -1;
 		foreach($all_orders as $row)
 		{
-			echo "Order ID [" . $row->id_order . '] from user [' . $row->id_user . '] ' . $row->user_name . " book [" . $row->id_book . "] " . $row->book_name . " (" . $row->order_date . ")" ;
-			echo " <a href=\"index.php?url=admin_remove_order/remove/" .$row->id_order. "\">Smazat</a> <br />";
+			$orderId = $row->id_order;
+
+			if($currentId != $orderId)
+			{
+				$currentId = $orderId;
+				echo "<h4>" . ($row->solved == 1 ? "[VYRIZENO]" : "") . "Order ID " . $orderId . " from " . $row->user_name . "(". $row->id_user . "), datum " . $row->order_date . "</h4>";
+				
+				echo "<a href=\"index.php?url=admin_remove_order/solve/" .$row->id_order. "\">Vyrizeno</a> <a href=\"index.php?url=admin_remove_order/remove/" .$row->id_order. "\">Smazat</a>";
+			}
+
+			echo "<p>Book [" . $row->id_book . "] " . $row->book_name . "" ;
+			echo " </p>";
 		}
 	}
 

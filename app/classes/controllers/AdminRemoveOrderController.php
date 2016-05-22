@@ -32,4 +32,12 @@ class AdminRemoveOrderController extends Controller
 
 		$this->redirect("admin_home/select/3");
 	}
+
+	public function solve($id)
+	{
+		$orders = new Orders($this->openDb());
+		$orders->solveOrder($id[0]);
+
+		$this->redirect("admin_home/select/5");
+	}
 }

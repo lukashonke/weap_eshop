@@ -30,6 +30,12 @@ class Orders
         DbTools::query($this->db, $sql);
     }
 
+    public function solveOrder($idOrder)
+    {
+        $sql = "UPDATE orders SET solved=1 WHERE id_order='$idOrder'";
+        DbTools::query($this->db, $sql);
+    }
+
     public function addFullOrder($idOrder, $idUser, $idBook, $date, $town, $street, $order_method, $name, $lastname, $email)
     {
         $sql = "INSERT INTO orders (id_order, id_user, id_book, order_date, address_town, address_street, order_method, username, lastname, email) VALUES ('$idOrder', '$idUser', '$idBook', '$date', '$town', '$street', '$order_method', '$name', '$lastname', '$email')";
@@ -57,6 +63,18 @@ class Orders
     public function getOrders()
     {
         $sql = "SELECT * FROM orders O JOIN users U ON O.id_user=U.id JOIN books B ON O.id_book=B.id_book ORDER BY O.id_user";
+        return DbTools::queryReturnAll($this->db, $sql);
+    }
+
+    public function getSolvedOrders()
+    {
+        $sql = "SELECT * FROM orders O JOIN users U ON O.id_user=U.id JOIN books B ON O.id_book=B.id_book WHERE solved=1 ORDER BY O.id_user";
+        return DbTools::queryReturnAll($this->db, $sql);
+    }
+
+    public function getUnsolvedOrders()
+    {
+        $sql = "SELECT * FROM orders O JOIN users U ON O.id_user=U.id JOIN books B ON O.id_book=B.id_book WHERE solved=0 ORDER BY O.id_user";
         return DbTools::queryReturnAll($this->db, $sql);
     }
 

@@ -29,6 +29,13 @@ class Users
         DbTools::query($this->db, $sql);
     }
 
+    public function existsName($name)
+    {
+        $sql = "SELECT count(*) FROM users WHERE user_name='$name'";
+        $result = $this->db->query($sql);
+        return $result->fetchColumn() > 0;
+    }
+
     public function removeUser($id)
     {
         $sql = "DELETE FROM users WHERE id='$id'";

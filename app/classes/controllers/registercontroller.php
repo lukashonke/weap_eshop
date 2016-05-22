@@ -52,6 +52,13 @@ class RegisterController extends Controller
 
         $name = htmlspecialchars($_POST['name']);
         $lastName = htmlspecialchars($_POST['last_name']);
+
+        if($users->existsName($name))
+        {
+            $this->redirect("register");
+            return;
+        }
+
         $email = htmlspecialchars($_POST['email']);
         $pwdRaw = htmlspecialchars($_POST['pwd']);
         $pwdRaw2 = htmlspecialchars($_POST['pwd2']);
@@ -71,6 +78,7 @@ class RegisterController extends Controller
         $this->template->set('message', 'Registration finished, login now.');
 
         $content = new View('login');
+        $content->set('message', '<h2>Registration finished.</h2>');
         $this->template->content = $content->render();
 
         $this->setPageParameters();

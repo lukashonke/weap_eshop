@@ -124,6 +124,42 @@ class AdminHomeController extends Controller
 
                 echo $this->template->render();
                 break;
+            case 4: // sprava nevyrizenych objednavek
+                $this->template->set('title', 'sprava objednavek');
+                $content = new View('admin_orders');
+
+                $orders = new \app\classes\models\Orders($this->openDb());
+                $allOrdersString = $orders->getUnsolvedOrders(); //TODO pridat knihy
+
+                $addOrderForm = new View('admin_add_order');
+                $addOrderForm->set('edit', '');
+                $content->set('add_order_form', $addOrderForm->render());
+                $content->set('all_orders', $allOrdersString);
+
+                $this->template->set('content', $content->render());
+
+                $this->addMenu();
+
+                echo $this->template->render();
+                break;
+            case 5: // sprava vyrizenych objednavek
+                $this->template->set('title', 'sprava objednavek');
+                $content = new View('admin_orders');
+
+                $orders = new \app\classes\models\Orders($this->openDb());
+                $allOrdersString = $orders->getSolvedOrders(); //TODO pridat knihy
+
+                $addOrderForm = new View('admin_add_order');
+                $addOrderForm->set('edit', '');
+                $content->set('add_order_form', $addOrderForm->render());
+                $content->set('all_orders', $allOrdersString);
+
+                $this->template->set('content', $content->render());
+
+                $this->addMenu();
+
+                echo $this->template->render();
+                break;
         }
         //index();
     }
