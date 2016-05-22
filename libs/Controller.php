@@ -17,6 +17,9 @@ class Controller
 
     public $db = null;
 
+    public $page = "home";
+    public $bookPage = "0";
+
     protected function setTemplate($template)
     {
         $this->template = new View($template, true);
@@ -57,6 +60,31 @@ class Controller
             return false;
         }
         return true;
+    }
+
+    public function isLogged()
+    {
+        return isset($_SESSION['logged']);
+    }
+
+    protected function setPageParameters()
+    {
+        if($this->isLogged())
+        {
+            $this->template->set('logout', "Logout");
+        }
+
+        if($this->isLogged())
+        {
+            $this->template->set('loginfo', "Logged in as " . $_SESSION['logged_name']);
+        }
+        else
+        {
+            $this->template->set('loginfo', "");
+        }
+
+        $this->template->set('page', $this->page);
+        $this->template->set('bookPage', $this->bookPage);
     }
 
     public function redirect($controller)

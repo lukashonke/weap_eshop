@@ -15,7 +15,7 @@ class AdminLoginController extends Controller
 {
     public function __construct()
     {
-        $this->setTemplate('default');
+        $this->setTemplate('admin_default');
     }
 
     public function index()

@@ -15,7 +15,7 @@ class AdminHomeController extends Controller
 {
     public function __construct()
     {
-        $this->setTemplate('default');
+        $this->setTemplate('admin_default');
     }
 
     public function index()
@@ -184,7 +184,6 @@ class AdminHomeController extends Controller
 
         $addBookForm->set('default_name', $bookData->book_name);
         $addBookForm->set('default_author', $bookData->author);
-        $addBookForm->set('default_vydavatel', "");
         $addBookForm->set('default_price', $bookData->price);
         $addBookForm->set('default_category', $bookData->category);
         $addBookForm->set('default_description', $bookData->description);

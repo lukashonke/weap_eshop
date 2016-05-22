@@ -69,11 +69,12 @@ class Bootstrap
         }
         else
         {
+            $handler = new classes\controllers\HomeController();
             //$handler = new classes\controllers\AdminHomeController();
-            include('template.html');
+            /*include('template.html');
             //header("template.html");
             //header("Connection: close");
-            return;
+            return;*/
         }
 
         $handler->index();

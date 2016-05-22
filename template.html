@@ -1,81 +1,160 @@
-﻿<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Eshop_template</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Book Eshop</title>
+
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="jumbotron-narrow.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-<div id="wrapper">
-  <header>
-  <h1>Logo</h1>
-  <img src="images/book.jpg" width="320" height="163" alt=""/> 
-  </header>
-  <nav id="topNav">
-  <span class="topMenuButton"><a href="index.php">HOME</a></span>
-  <span class="topMenuButton"><a href="bootstrap/index.html">BS Home</a></span>
-  <span class="topMenuButton"><a href="index.php">CART</a></span>
-  <span class="topMenuButton"><a href="index.php">CONTACT</a></span>
-  <span class="topMenuButton"><a href="index.php">ABOUT</a></span>
-  <span class="topMenuButton"><a href="index.php?url=admin_home">ADMIN</a></span>
-  </nav>
-  <main>
-  <nav id="sideNav">
-  <h3>Zbozi</h3>
-  <list>
-  <li><span class="sideMenuButton"><a href="index.php">ODKAZ</a></span></li>
-  <li><span class="sideMenuButton"><a href="index.php">ODKAZ</a></span></li>
-  <li><span class="sideMenuButton"><a href="index.php">ODKAZ</a></span></li>
-  <li><span class="sideMenuButton"><a href="index.php">ODKAZ</a></span></li>
-  </list>
-  </nav>
-  
-    <div id="obsah"> 
-    <h2>Vitej smejde</h2>
+<div class="container">
+
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Cart</a></li>
+        <li role="presentation"><a href="#">Contact</a></li>
+        <li role="presentation"><a href="index.php?url=admin_home">Admin</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">Book Eshop</h3>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 col-md-4">
+      <div class="list-group">
+      
+        <div class="my_dropdown"> <a href="#" class="list-group-item active">
+          <h4 class="list-group-item-heading">Česká beletrie</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          </a>
+          <div class="my_hidden_dropdown">
+            <div class="list-group"> <a href="#" class="list-group-item"> Romány </a> <a href="#" class="list-group-item">Sci-fi, Fantasy</a> <a href="#" class="list-group-item">Detektivky</a> <a href="#" class="list-group-item">Povídky</a> <a href="#" class="list-group-item">Komiksy</a> </div>
+          </div>
+        </div>
+        
+        <div class="my_dropdown"> <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">Světová beletrie</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          </a>
+          <div class="my_hidden_dropdown">
+            <div class="list-group"> <a href="#" class="list-group-item"> Romány </a> <a href="#" class="list-group-item">Sci-fi, Fantasy</a> <a href="#" class="list-group-item">Detektivky</a> <a href="#" class="list-group-item">Povídky</a> <a href="#" class="list-group-item">Komiksy</a> </div>
+          </div>
+        </div>
+        
+        <div class="my_dropdown"> <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">Naučná literatura</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          </a>
+          <div class="my_hidden_dropdown">
+            <div class="list-group"> <a href="#" class="list-group-item"> Cestování </a> <a href="#" class="list-group-item">Historie</a> <a href="#" class="list-group-item">Zdraví a fitness</a> <a href="#" class="list-group-item">Odborná literatura</a> <a href="#" class="list-group-item">Filozofie</a> </div>
+          </div>
+        </div>
+        
+        <div class="my_dropdown"> <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">Dětská literatura</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          </a>
+          <div class="my_hidden_dropdown">
+            <div class="list-group"> <a href="#" class="list-group-item"> Pohádky </a> <a href="#" class="list-group-item">Horory</a> </div>
+          </div>
+        </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-8">
     
-    <article class="shopItem">
-    <div><img src="images/book_thumb.jpg" width="200" height="200" alt=""/></div>
-    <p class="itemName">Jmeno knihy</p>
-    <p class="itemPrice">999,- vc. DPH</p>
-    </article>
+    	<div class="jumbotron">
+        <h1>Vítejte!</h1>
+        <p class="lead">Nabízíme vám jen ty nejlepší knihy z celého světa. Jsou opravdu skvělé, nejlepší a nejlépe voní.</p>
+      </div>
     
-    <article class="shopItem">
-    <div><img src="images/book_thumb.jpg" width="200" height="200" alt=""/></div>
-    <p class="itemName">Jmeno knihy</p>
-    <p class="itemPrice">999,- vc. DPH</p>
-    </article>
-    
-    <article class="shopItem">
-    <div><img src="images/book_thumb.jpg" width="200" height="200" alt=""/></div>
-    <p class="itemName">Jmeno knihy</p>
-    <p class="itemPrice">999,- vc. DPH</p>
-    </article>
-    
-    <article class="shopItem">
-    <div><img src="images/book_thumb.jpg" width="200" height="200" alt=""/></div>
-    <p class="itemName">Jmeno knihy</p>
-    <p class="itemPrice">999,- vc. DPH</p>
-    </article>
-    
-    <article class="shopItem">
-    <div><img src="images/book_thumb.jpg" width="200" height="200" alt=""/></div>
-    <p class="itemName">Jmeno knihy</p>
-    <p class="itemPrice">999,- vc. DPH</p>
-    </article>
-    
-    <article class="shopItem">
-    <div><img src="images/book_thumb.jpg" width="200" height="200" alt=""/></div>
-    <p class="itemName">Jmeno knihy</p>
-    <p class="itemPrice">999,- vc. DPH</p>
-    </article>
-    
-<div>
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin in tellus sit amet nibh dignissim sagittis. Aenean fermentum risus id tortor. Maecenas sollicitudin. Integer tempor. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Phasellus rhoncus. Pellentesque sapien. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nullam eget nisl. In dapibus augue non sapien. Proin in tellus sit amet nibh dignissim sagittis. Nulla non lectus sed nisl molestie malesuada. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam commodo dui eget wisi.
+      <article class="shopItem">
+        <div><img src="images/book_thumb.jpg" class="img-responsive" width="200" height="200" alt=""/></div>
+        <p class="itemName">Jmeno knihy</p>
+        <p class="itemPrice">999,- vc. DPH</p>
+      </article>
+      <article class="shopItem">
+        <div><img src="images/book_thumb.jpg" class="img-responsive" width="200" height="200" alt=""/></div>
+        <p class="itemName">Jmeno knihy</p>
+        <p class="itemPrice">999,- vc. DPH</p>
+      </article>
+      <article class="shopItem">
+        <div><img src="images/book_thumb.jpg" class="img-responsive" width="200" height="200" alt=""/></div>
+        <p class="itemName">Jmeno knihy</p>
+        <p class="itemPrice">999,- vc. DPH</p>
+      </article>
+      <article class="shopItem">
+        <div><img src="images/book_thumb.jpg" class="img-responsive" width="200" height="200" alt=""/></div>
+        <p class="itemName">Jmeno knihy</p>
+        <p class="itemPrice">999,- vc. DPH</p>
+      </article>
+      <article class="shopItem">
+        <div><img src="images/book_thumb.jpg" class="img-responsive" width="200" height="200" alt=""/></div>
+        <p class="itemName">Jmeno knihy</p>
+        <p class="itemPrice">999,- vc. DPH</p>
+      </article>
+      <article class="shopItem">
+        <div><img src="images/book_thumb.jpg" class="img-responsive" width="200" height="200" alt=""/></div>
+        <p class="itemName">Jmeno knihy</p>
+        <p class="itemPrice">999,- vc. DPH</p>
+      </article>
+      
+      <nav>
+      
+  <nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</nav>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2016 Lukas Honke</p>
+  </footer>
 </div>
-     </div>
-  </main>
-  <footer>(C) 2016 Lukas Honke</footer>
-</div>
+<!-- /container --> 
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
+<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

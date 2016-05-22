@@ -16,7 +16,7 @@ class AdminAddBookController extends Controller
 {
 	public function __construct()
 	{
-		$this->setTemplate('default');
+		$this->setTemplate('admin_default');
 	}
 
 	public function index()
@@ -25,12 +25,20 @@ class AdminAddBookController extends Controller
 
 		$jmeno = $_POST['jmeno'];
 		$autor = $_POST['autor'];
-		$vydavatel = $_POST['vydavatel'];
 		$cena = $_POST['cena'];
 		$popis = $_POST['popis'];
 		$kategorie = $_POST['kategorie'];
+
+		if (strlen($jmeno) == 0 || strlen($autor) == 0 || strlen($cena) == 0 || strlen($kategorie) == 0)
+		{
+			$this->redirect("admin_home/select/1");
+			return;
+		}
+
+		if(strlen($popis) == 0)
+			$popis = "Popis neni zadan.";
 		
-		$books->addBook($jmeno, $autor, $vydavatel, $cena, $popis, $kategorie);
+		$books->addBook($jmeno, $autor, $cena, $popis, $kategorie);
 		$this->redirect("admin_home/select/1");
 	}
 
@@ -40,12 +48,20 @@ class AdminAddBookController extends Controller
 
 		$jmeno = $_POST['jmeno'];
 		$autor = $_POST['autor'];
-		$vydavatel = $_POST['vydavatel'];
 		$cena = $_POST['cena'];
 		$popis = $_POST['popis'];
 		$kategorie = $_POST['kategorie'];
 
-		$books->editBook($id[0], $jmeno, $autor, $vydavatel, $cena, $popis, $kategorie);
+		if (strlen($jmeno) == 0 || strlen($autor) == 0 || strlen($cena) == 0 || strlen($kategorie) == 0)
+		{
+			$this->redirect("admin_home/select/1");
+			return;
+		}
+
+		if(strlen($popis) == 0)
+			$popis = "Popis neni zadan.";
+
+		$books->editBook($id[0], $jmeno, $autor, $cena, $popis, $kategorie);
 		$this->redirect("admin_home/select/1");
 	}
 }

@@ -7,7 +7,8 @@ require('app/config.php');
 spl_autoload_extensions('.php');
 
 spl_autoload_register(
-    function ($pClassName) {
+    function ($pClassName)
+    {
         spl_autoload(strtolower(str_replace("\\", "/", $pClassName)));
     }
 );

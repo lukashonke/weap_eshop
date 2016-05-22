@@ -15,7 +15,7 @@ class AdminPrehledController extends Controller
 {
     public function __construct()
     {
-        $this->setTemplate('default');
+        $this->setTemplate('admin_default');
         $this->openDb();
     }
 

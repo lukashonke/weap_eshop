@@ -5,7 +5,7 @@
  * Date: 21. 4. 2016
  * Time: 23:55
  */
-echo "do pici proc to nejde";
+echo "proc to nejde";
 
 $post = explode("&", file_get_contents('php://input'));
 

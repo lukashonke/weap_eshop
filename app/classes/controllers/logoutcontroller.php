@@ -11,17 +11,18 @@ namespace app\classes\controllers;
 use libs\Controller;
 use libs\View;
 
-class AdminLogoutController extends Controller
+class LogoutController extends Controller
 {
     public function __construct()
     {
-        $this->setTemplate('admin_default');
+        $this->setTemplate('default');
     }
 
     public function index()
     {
-        unset($_SESSION['admin_logged']);
+        unset($_SESSION['logged']);
+        unset($_SESSION['logged_name']);
         //$_SESSION['admin_logged'] = false;
-        $this->redirect("admin_home");
+        $this->redirect("home");
     }
 }

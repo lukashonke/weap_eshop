@@ -17,13 +17,13 @@ class Books
         $this->db = $db;
     }
 
-    public function addBook($name, $author, $dodavatel, $price, $description, $category)
+    public function addBook($name, $author, $price, $description, $category)
     {
         $sql = "INSERT INTO books (book_name, author, description, price, category) VALUES ('$name', '$author', '$description', '$price', '$category')";
         DbTools::query($this->db, $sql);
     }
 
-    public function editBook($id_book, $name, $author, $dodavatel, $price, $description, $category)
+    public function editBook($id_book, $name, $author, $price, $description, $category)
     {
         $sql = "UPDATE books SET book_name='$name', author='$author', description='$description', price='$price', category='$category' WHERE id_book='$id_book'";
         DbTools::query($this->db, $sql);
@@ -38,6 +38,12 @@ class Books
     public function getBooks()
     {
         $sql = "SELECT * FROM books";
+        return DbTools::queryReturnAll($this->db, $sql);
+    }
+
+    public function getBooksByCategory($cat)
+    {
+        $sql = "SELECT * FROM books WHERE category='$cat'";
         return DbTools::queryReturnAll($this->db, $sql);
     }
 

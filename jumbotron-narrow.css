@@ -14,8 +14,8 @@ body {
 
 /* Custom page header */
 .header {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e5e5e5;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -32,21 +32,29 @@ body {
 }
 .shopItem {
 	width: 33%;
-	clear: left;
-	float: right;
+	clear: right;
+	float: left;
 }
 .my_hidden_dropdown {
-	display: none;
+	height: 0;
+	display: block;
+	visibility: hidden;
+	opacity: 0;
+
+    transition: opacity 0.5s linear 0.5s;
 }
 .my_dropdown {
-
 
 
 }
 .my_dropdown:hover .my_hidden_dropdown  {
 	display: block;
+	max-height: 9999;
+	height: auto;
+	visibility: visible;
+	opacity: 1;
+	transition-delay: 0s;
 }
-
 
 
 
@@ -63,9 +71,16 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+	text-align: center;
+	border-bottom: 1px solid #e5e5e5;
+	width: 100%;
 }
+
+.newline {
+    clear: left;
+    float: right;
+}
+
 .jumbotron .btn {
   padding: 14px 24px;
   font-size: 21px;
@@ -94,6 +109,6 @@ body {
   }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
-    border-bottom: 0;
+	border-bottom: 0;
   }
 }

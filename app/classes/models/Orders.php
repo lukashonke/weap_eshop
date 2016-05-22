@@ -30,6 +30,12 @@ class Orders
         DbTools::query($this->db, $sql);
     }
 
+    public function addFullOrder($idOrder, $idUser, $idBook, $date, $town, $street, $order_method, $name, $lastname, $email)
+    {
+        $sql = "INSERT INTO orders (id_order, id_user, id_book, order_date, address_town, address_street, order_method, username, lastname, email) VALUES ('$idOrder', '$idUser', '$idBook', '$date', '$town', '$street', '$order_method', '$name', '$lastname', '$email')";
+        DbTools::query($this->db, $sql);
+    }
+
     public function removeOrder($idOrder)
     {
         $sql = "DELETE FROM orders WHERE id_order='$idOrder'";

@@ -46,4 +46,32 @@ class Users
         $sql = "SELECT * FROM users WHERE id='$id'";
         return DbTools::queryReturnFirstRow($this->db, $sql); // vratit jen jeden
     }
+
+    public function getPassword($name)
+    {
+        $sql = "SELECT password FROM users WHERE user_name='$name'";
+        $result = $this->db->query($sql);
+        return $result->fetchColumn();
+    }
+
+    public function GetUserId($name)
+    {
+        $sql = "SELECT id FROM users WHERE user_name='$name'";
+        $result = $this->db->query($sql);
+        return $result->fetchColumn();
+    }
+
+    public function getUserEmail($id)
+    {
+        $sql = "SELECT email FROM users WHERE id='$id'";
+        $result = $this->db->query($sql);
+        return $result->fetchColumn();
+    }
+
+    public function GetLastName($id)
+    {
+        $sql = "SELECT lastname FROM users WHERE id='$id'";
+        $result = $this->db->query($sql);
+        return $result->fetchColumn();
+    }
 }

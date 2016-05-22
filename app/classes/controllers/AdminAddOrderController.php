@@ -18,7 +18,7 @@ class AdminAddOrderController extends Controller
 {
 	public function __construct()
 	{
-		$this->setTemplate('default');
+		$this->setTemplate('admin_default');
 	}
 
 	public function index()
@@ -29,9 +29,14 @@ class AdminAddOrderController extends Controller
 		$idBook = $_POST['id_book'];
 		$idOrder = $_POST['id_order'];
 
-		if($idOrder == 0 || $idOrder == "")
-		{
+		if ($idOrder == 0 || $idOrder == "") {
 			$idOrder = $orders->generateNextOrderId();
+		}
+
+		if (strlen($idUser) == 0 || strlen($idBook) == 0)
+		{
+			$this->redirect("admin_home/select/3");
+			return;
 		}
 
 		$orders->addOrder($idOrder, $idUser, $idBook, date("Y-m-d H:i:s"));

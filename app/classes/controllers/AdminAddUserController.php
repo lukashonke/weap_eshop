@@ -17,7 +17,7 @@ class AdminAddUserController extends Controller
 {
 	public function __construct()
 	{
-		$this->setTemplate('default');
+		$this->setTemplate('admin_default');
 	}
 
 	public function index()
@@ -28,6 +28,12 @@ class AdminAddUserController extends Controller
 		$lastName = $_POST['last_name'];
 		$email = $_POST['email'];
 		$pwdRaw = $_POST['pwd'];
+
+		if (strlen($name) == 0 || strlen($lastName) == 0 || strlen($email) == 0 || strlen($pwdRaw) == 0)
+		{
+			$this->redirect("admin_home/select/2");
+			return;
+		}
 
 		$pass = md5($pwdRaw);
 
@@ -43,6 +49,12 @@ class AdminAddUserController extends Controller
 		$lastName = $_POST['last_name'];
 		$email = $_POST['email'];
 		$pwdRaw = $_POST['pwd'];
+
+		if (strlen($name) == 0 || strlen($lastName) == 0 || strlen($email) == 0 || strlen($pwdRaw) == 0)
+		{
+			$this->redirect("admin_home/select/2");
+			return;
+		}
 
 		$pass = md5($pwdRaw);
 
