@@ -43,14 +43,20 @@ class Books
 
     public function getBooksByCategory($cat)
     {
-        $sql = "SELECT * FROM books WHERE category='$cat'";
-        return DbTools::queryReturnAll($this->db, $sql);
+        $stm = $this->db->prepare("SELECT * FROM books WHERE category=?");
+
+        $stm->execute(array($cat));
+
+        return $stm;
     }
 
     public function getBook($id)
     {
-        $sql = "SELECT * FROM books WHERE id_book='$id'";
-        return DbTools::queryReturnFirstRow($this->db, $sql); // vratit jen jeden
+        $stm = $this->db->prepare("SELECT * FROM books WHERE id_book=?");
+
+        $stm->execute(array($id));
+
+        return $stm->fetch();
     }
 
 }

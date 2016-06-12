@@ -38,8 +38,9 @@ class Orders
 
     public function addFullOrder($idOrder, $idUser, $idBook, $date, $town, $street, $order_method, $name, $lastname, $email)
     {
-        $sql = "INSERT INTO orders (id_order, id_user, id_book, order_date, address_town, address_street, order_method, username, lastname, email) VALUES ('$idOrder', '$idUser', '$idBook', '$date', '$town', '$street', '$order_method', '$name', '$lastname', '$email')";
-        DbTools::query($this->db, $sql);
+        $stm = $this->db->prepare("INSERT INTO orders (id_order, id_user, id_book, order_date, address_town, address_street, order_method, username, lastname, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+        $stm->execute(array($idOrder, $idUser, $idBook, $date, $town, $street, $order_method, $name, $lastname, $email));
     }
 
     public function removeOrder($idOrder)

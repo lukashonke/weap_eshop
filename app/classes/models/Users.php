@@ -19,8 +19,9 @@ class Users
 
     public function addUser($name, $lastname, $email, $password)
     {
-        $sql = "INSERT INTO users (user_name, lastname, email, password) VALUES ('$name', '$lastname', '$email', '$password')";
-        DbTools::query($this->db, $sql);
+		$stm = $this->db->prepare("INSERT INTO users (user_name, lastname, email, password) VALUES (?,?,?,?)");
+
+		$stm->execute(array($name, $lastname, $email, $password));
     }
 
     public function editUser($id_user, $name, $lastname, $email, $password)
@@ -31,9 +32,11 @@ class Users
 
     public function existsName($name)
     {
-        $sql = "SELECT count(*) FROM users WHERE user_name='$name'";
-        $result = $this->db->query($sql);
-        return $result->fetchColumn() > 0;
+		$stm = $this->db->prepare("SELECT count(*) FROM users WHERE user_name=?");
+
+		$stm->execute(array($name));
+
+		return $stm->fetchColumn() > 0;
     }
 
     public function removeUser($id)
@@ -56,29 +59,41 @@ class Users
 
     public function getPassword($name)
     {
-        $sql = "SELECT password FROM users WHERE user_name='$name'";
-        $result = $this->db->query($sql);
-        return $result->fetchColumn();
+		$stm = $this->db->prepare("SELECT password FROM users WHERE user_name=?");
+
+		$stm->execute(array($name));
+
+		return $stm->fetchColumn();
     }
 
-    public function GetUserId($name)
+    public function GetUserId($naame)
     {
-        $sql = "SELECT id FROM users WHERE user_name='$name'";
-        $result = $this->db->query($sql);
-        return $result->fetchColumn();
+        $stm = $this->db->prepare("SELECT id FROM users WHERE user_name=?");
+
+        $stm->execute(array($naame));
+
+        return $stm->fetchColumn();
     }
 
     public function getUserEmail($id)
     {
-        $sql = "SELECT email FROM users WHERE id='$id'";
-        $result = $this->db->query($sql);
-        return $result->fetchColumn();
+        $stm = $this->db->prepare("SELECT email FROM users WHERE id=:id");
+
+        $stm->execute(array(
+            ':id' => $id
+        ));
+
+        return $stm->fetchColumn();
     }
 
     public function GetLastName($id)
     {
-        $sql = "SELECT lastname FROM users WHERE id='$id'";
-        $result = $this->db->query($sql);
-        return $result->fetchColumn();
+        $stm = $this->db->prepare("SELECT lastname FROM users WHERE id=:id");
+
+        $stm->execute(array(
+            ':id' => $id
+        ));
+
+        return $stm->fetchColumn();
     }
 }
