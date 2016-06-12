@@ -62,19 +62,19 @@ class Orders
 
     public function getOrders()
     {
-        $sql = "SELECT * FROM orders O JOIN users U ON O.id_user=U.id JOIN books B ON O.id_book=B.id_book ORDER BY O.id_user";
+        $sql = "SELECT * FROM orders O JOIN books B ON O.id_book=B.id_book ORDER BY O.id_order";
         return DbTools::queryReturnAll($this->db, $sql);
     }
 
     public function getSolvedOrders()
     {
-        $sql = "SELECT * FROM orders O JOIN users U ON O.id_user=U.id JOIN books B ON O.id_book=B.id_book WHERE solved=1 ORDER BY O.id_user";
+        $sql = "SELECT * FROM orders O JOIN books B ON O.id_book=B.id_book WHERE solved=1 ORDER BY O.id_order";
         return DbTools::queryReturnAll($this->db, $sql);
     }
 
     public function getUnsolvedOrders()
     {
-        $sql = "SELECT * FROM orders O JOIN users U ON O.id_user=U.id JOIN books B ON O.id_book=B.id_book WHERE solved=0 ORDER BY O.id_user";
+        $sql = "SELECT * FROM orders O JOIN books B ON O.id_book=B.id_book WHERE solved=0 ORDER BY O.id_order";
         return DbTools::queryReturnAll($this->db, $sql);
     }
 

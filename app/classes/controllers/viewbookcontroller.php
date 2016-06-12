@@ -62,9 +62,21 @@ class ViewBookController extends Controller
 
             $this->redirect("cart");
         }
-        else
+        else // neni prihlaseny - pouze uloz do SESSION cart
         {
-            $this->redirect("login");
+            if(!isset($_SESSION['cart']))
+            {
+                $_SESSION['cart'] = array();
+            }
+
+            $idBook = $option[0];
+            $currentCart = $_SESSION['cart'];
+
+            array_push($currentCart, $idBook);
+            //$currentCart[count($currentCart)] = $idBook;
+
+            $_SESSION['cart'] = $currentCart;
+            $this->redirect("cart");
         }
     }
 
@@ -80,9 +92,21 @@ class ViewBookController extends Controller
 
             $this->redirect("cart");
         }
-        else
+        else // neni prihlaseny - odeber ze SESSION cartu
         {
-            $this->redirect("login");
+            if(!isset($_SESSION['cart']))
+            {
+                $_SESSION['cart'] = array();
+            }
+
+            $idBook = $option[0];
+            $currentCart = $_SESSION['cart'];
+
+            $bookIndex = array_search($idBook, $currentCart);
+            unset($currentCart[$bookIndex]);
+
+            $_SESSION['cart'] = $currentCart;
+            $this->redirect("cart");
         }
     }
 

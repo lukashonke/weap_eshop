@@ -39,6 +39,7 @@ class LoginController extends Controller
 
             if(md5($pwd) == $rightPass)
             {
+                $_SESSION['cart'] = null;
                 $_SESSION['logged'] = true;
                 $_SESSION['logged_name'] = $name;
 

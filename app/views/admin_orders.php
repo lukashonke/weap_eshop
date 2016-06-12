@@ -22,7 +22,7 @@
 			if($currentId != $orderId)
 			{
 				$currentId = $orderId;
-				echo "<h4>" . ($row->solved == 1 ? "[VYRIZENO]" : "") . "Order ID " . $orderId . " from " . $row->user_name . "(". $row->id_user . "), datum " . $row->order_date . "</h4>";
+				echo "<h4>" . ($row->solved == 1 ? "[VYRIZENO]" : "") . "Order ID " . $orderId . " from " . $row->username . "(". $row->id_user . "), datum " . $row->order_date . "</h4>";
 				
 				echo "<a href=\"index.php?url=admin_remove_order/solve/" .$row->id_order. "\">Vyrizeno</a> <a href=\"index.php?url=admin_remove_order/remove/" .$row->id_order. "\">Smazat</a>";
 			}
